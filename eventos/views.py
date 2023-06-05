@@ -1,10 +1,15 @@
 from django.shortcuts import render
+from .models import Evento
 
 # Create your views here.
 
 def index(request):
+
+    eventos = Evento.objects.all()
+
     data = {
-        'titulo': "Principal"
+        'titulo': "Principal",
+        'listado': eventos
     }
 
     return render(request,"index.html",data)

@@ -1,11 +1,15 @@
-<html>
-    <head>
-        <title>{{ titulo }}</title>
-    </head>
-<body>
+{% extends 'base.html' %}
 
-<h1>Hola Principal</h1>
-<p>Pagina de index</p>
+{% block titulo  %}
+    {{ titulo }}
+{% endblock  %}
 
-</body>
-</html>
+{% block contenido  %}
+    <h1>Hola Principal</h1>
+    <hr />
+    <p>Pagina de index</p>
+
+    {% for row in listado %}
+        <li> {{ row.nombre }} + {{ row.precio }}     
+    {% endfor %}
+{% endblock contenido  %}
