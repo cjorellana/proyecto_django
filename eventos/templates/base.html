@@ -1,10 +1,33 @@
+{% load bootstrap5 %}
+{% load static %}
+
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block titulo  %}{% endblock  %} </title>
     </head>
+    {% bootstrap_css %}
+    
+    
 <body>
-    {% block contenido  %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <img src = "{% static 'img/logo2.png' %}" alt="logo UG" width="60%" />                
+            </div>
+            <div class="col-6">
+            Titulo
+            </div>
+            <div class="col">
+            Login
+            </div>
+        </div>
+    </div>
 
+    {% block contenido  %}
+    
     {% endblock  %}
+    
+    {% bootstrap_javascript %}
 </body>
 </html>
