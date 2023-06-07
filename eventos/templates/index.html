@@ -6,18 +6,12 @@
 {% endblock  %}
 
 {% block contenido  %}
-    <h1>Hola Principal</h1>
-    <hr />
-    <p>Pagina de index</p>
-
+    
     
     {% for row in listado %}
         <li> {{ row.nombre }} + <span class="badge text-bg-warning">{{ row.precio }} </span>
         
     {% endfor %}
     
-    <button type="button" class="btn btn-primary">
-        Notifications <span class="badge text-bg-secondary">4</span>
-      </button>
-
+    
 {% endblock contenido  %}
