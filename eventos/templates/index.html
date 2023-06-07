@@ -6,12 +6,44 @@
 {% endblock  %}
 
 {% block contenido  %}
+
+    <div class="row">
+        {% for row in listado %}
+        <div class="col-6">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h3 class="card-title text-center text-uppercase text-black">
+                        {{ row.nombre }}
+                    </h3>
+
+                    <div class="row mb-2">
+                        <div class="col d-flex align-items-start flex-row align-self-center">
+                            <span class="mr-2 fs-6 fw-light text-muted">Inicio:&nbsp;</span>
+                            <strong class="fs-6 text-muted">{{ row.inicio }}</strong>
+                        </div>
+                        <div class="col d-flex align-items-end flex-row justify-content-end">
+                            <span class="mr-2 fs-6 fw-light text-muted">Fin:&nbsp;</span>
+                            <strong class="fs-6 text-muted">{{ row.fin }}</strong>
+                        </div>
+                    </div>
+
+                    {% if row.diploma %}
+                        <span class="badge bg-warning">Incluye Diploma</span>
+                    {% endif %}
+
+                    
+
+                </div>        
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
     
-    
-    {% for row in listado %}
-        <li> {{ row.nombre }} + <span class="badge text-bg-warning">{{ row.precio }} </span>
+   
+        {% comment %} <li> {{ row.nombre }} + <span class="badge text-bg-warning">{{ row.precio }} </span> {% endcomment %}
         
-    {% endfor %}
+   
     
     
 {% endblock contenido  %}
