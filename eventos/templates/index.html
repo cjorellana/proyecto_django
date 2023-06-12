@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+{% load bootstrap_icons %}
 
 {% block titulo  %}
     {{ titulo }}
@@ -13,7 +14,9 @@
             <div class="card mb-2">
                 <div class="card-body">
                     <h3 class="card-title text-center text-uppercase text-black">
-                        {{ row.nombre }}
+                        <a href="/detalle" class="text-decoration-none">
+                            {{ row.nombre }}
+                        </a>
                     </h3>
 
                     <div class="row mb-2">
@@ -36,7 +39,10 @@
                             Q {{ row.precio }}
                         </div>
                         <div class="col col d-flex align-items-end flex-column">                            
-                            <a href="#" class="btn btn-link text-decoration-none">Agregar al Carrito</a>
+                             <a href="#" class="btn btn-link text-decoration-none">
+                                {% bs_icon 'cart-x-fill' %}
+                                Agregar al Carrito
+                            </a>
                         </div>
                     </div>
 

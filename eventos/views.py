@@ -14,6 +14,13 @@ def index(request):
 
     return render(request,"index.html",data)
 
+def detalle(request):
+    data = {
+        'titulo': "Detalle Evento"
+    }
+
+    return render(request,"detalle.html",data)
+
 def about(request):
     data = {
         'titulo': "About...",
