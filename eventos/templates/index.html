@@ -1,6 +1,6 @@
-
 {% extends 'base.html' %}
 {% load bootstrap_icons %}
+{% load static %}
 
 {% block titulo  %}
     {{ titulo }}
@@ -13,12 +13,18 @@
         <div class="col-6">
             <div class="card mb-2">
                 <div class="card-body">
-                    <h3 class="card-title text-center text-uppercase text-black">
-                        <a href="/detalle" class="text-decoration-none">
-                            {{ row.nombre }}
-                        </a>
-                    </h3>
-
+                    <a href="/detalle" class="text-decoration-none">
+                        {% if row.foto %}
+                            <img src="{{ row.foto.url }}" />
+                        {% else %}
+                            <img src="{% static 'img/noevento.jpg' %}" alt="logo UG" /> 
+                        {% endif %}
+                     
+                        <h3 class="card-title text-center text-uppercase text-black">                        
+                                {{ row.nombre }}
+                            
+                        </h3>
+                    </a>
                     <div class="row mb-2">
                         <div class="col d-flex align-items-start flex-row align-self-center">
                             <span class="mr-2 fs-6 fw-light text-muted">Inicio:&nbsp;</span>
