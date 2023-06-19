@@ -13,7 +13,7 @@
         <div class="col-6">
             <div class="card mb-2">
                 <div class="card-body">
-                    <a href="/detalle" class="text-decoration-none">
+                    <a href="/detalle/{{ row.id }}" class="text-decoration-none">
                         {% if row.foto %}
                             <img src="{{ row.foto.url }}" />
                         {% else %}

@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
-class Evento(models.Model):
+class Evento(models.Model):    
     nombre = models.CharField(max_length=50)
     precio = models.DecimalField(default=0.0, max_digits=8, decimal_places=2)    
     inicio = models.DateField()

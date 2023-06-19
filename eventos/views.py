@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Evento
+
 
 # Create your views here.
 
@@ -14,9 +15,16 @@ def index(request):
 
     return render(request,"index.html",data)
 
-def detalle(request):
+def detalle(request,codigo):
+
+    #eventos = Evento.objects.get(id=codigo)
+    eventos = get_object_or_404(Evento,id=codigo)
+
+    #"select * from Eventos where id=codigo"
+
     data = {
-        'titulo': "Detalle Evento"
+        'titulo': "Detalle Evento: " + str(codigo),
+        'listado': eventos
     }
 
     return render(request,"detalle.html",data)
