@@ -6,7 +6,7 @@ from .models import Evento
 
 def index(request):
 
-    eventos = Evento.objects.all()
+    eventos = Evento.objects.all() # N
 
     data = {
         'titulo': "Principal",
@@ -17,7 +17,7 @@ def index(request):
 
 def detalle(request,codigo):
 
-    #eventos = Evento.objects.get(id=codigo)
+    #eventos = Evento.objects.get(id=codigo) # 1
     eventos = get_object_or_404(Evento,id=codigo)
 
     #"select * from Eventos where id=codigo"

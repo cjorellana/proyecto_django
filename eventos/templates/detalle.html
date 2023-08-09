@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
-
 {% block titulo  %} {{ titulo }}{% endblock  %}
-
 {# Aqui va el contenido #}
-
 {% block contenido  %}
-   
+<div class="container">
     <h1>{{ listado.nombre }}</h1>
+    <div class="row">
+        <div class="col-4">
+            <img src="{{ listado.foto.url }}" />
+            <div class="row">
+                <div class="col">
+                    Inicia: {{ listado.inicio }}
+                </div>
+                <div class="col">
+                    Finaliza: {{ listado.fin }}
+                </div>
+            </div>
+            Inversión: {{ listado.precio }}           
+        </div>
+        <div class="col-8">
+            Column2
+        </div>   
+    </div>
+  </div>
     
 
 {% endblock contenido  %}
