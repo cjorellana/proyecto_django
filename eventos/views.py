@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Evento
+from .forms import FormContacto
 
 
 # Create your views here.
@@ -35,3 +36,9 @@ def about(request):
         'contenido': "esta es la pagina de about"
     }
     return render(request,"about.html",data)
+
+def contacto(request):
+    data = {
+        'form': FormContacto()
+    }
+    return render(request,"contacto.html",data)
