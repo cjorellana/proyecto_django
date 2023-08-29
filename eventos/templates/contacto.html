@@ -4,9 +4,19 @@
 
 {# Aqui va el contenido #}
 {% block contenido  %}
+
+
     
-    {{ form }}
+    <form action="" method="post">
+        {% csrf_token %} 
+        
+        {{ form }}
+        
 
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Enviar</button>    
+        </div>
+        {{ mensaje }}
+    </form>
 
-   
 {% endblock contenido  %}

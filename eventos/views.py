@@ -38,7 +38,19 @@ def about(request):
     return render(request,"about.html",data)
 
 def contacto(request):
+
     data = {
         'form': FormContacto()
     }
+
+    #metodo
+    if request.method == 'POST':
+        print('llego al post')
+        formulario= FormContacto(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Soporte Ingresado, Pronto nos comunicaremos"
+        else:
+            data['form']=formulario
+        
     return render(request,"contacto.html",data)
