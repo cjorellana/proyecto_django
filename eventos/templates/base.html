@@ -13,12 +13,16 @@
 <body>
     {% include 'menu.html'  %}
 
-    <div class="container" style="margin-top: 50;">
+    <div class="container" style="margin-top: 50;"> 
+
+    {% include 'mensaje.html'  %}  
+    
     {% block contenido  %}
     
     {% endblock  %}
     </div>
     
+    <script src="{% static 'js/local.js' %}"> </script>
     {% bootstrap_javascript %}
 </body>
 </html>

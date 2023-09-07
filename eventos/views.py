@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Evento
 from .forms import FormContacto
+from django.contrib import messages
 
 
 # Create your views here.
@@ -45,12 +46,12 @@ def contacto(request):
 
     #metodo
     if request.method == 'POST':
-        print('llego al post')
         formulario= FormContacto(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Soporte Ingresado, Pronto nos comunicaremos"
+            messages.success(request,'Soporte Enviado Correctamente. ')
         else:
+            messages.error(request,'Error al enviar el formulario. ')
             data['form']=formulario
         
     return render(request,"contacto.html",data)
