@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap_icons %}
 {% load static %}
+{% load humanize %}
 
 {% block titulo  %}
     {{ titulo }}
@@ -20,19 +21,23 @@
                             <img src="{% static 'img/noevento.jpg' %}" alt="logo UG" /> 
                         {% endif %}
                      
-                        <h3 class="card-title text-center text-uppercase text-black">                        
-                                {{ row.nombre }}
+                        <h3 class="card-title text-center text-black">                        
+                                {{ row.nombre | title | truncatechars:30 }}
                             
                         </h3>
                     </a>
                     <div class="row mb-2">
                         <div class="col d-flex align-items-start flex-row align-self-center">
                             <span class="mr-2 fs-6 fw-light text-muted">Inicio:&nbsp;</span>
-                            <strong class="fs-6 text-muted">{{ row.inicio }}</strong>
+                            
+                            <strong class="fs-6 text-muted">{{ row.inicio | date:"j - F - Y" }}</strong>
+                            
                         </div>
                         <div class="col d-flex align-items-end flex-row justify-content-end">
                             <span class="mr-2 fs-6 fw-light text-muted">Fin:&nbsp;</span>
-                            <strong class="fs-6 text-muted">{{ row.fin }}</strong>
+                            
+                            <strong class="fs-6 text-muted">{{ row.fin | date:"j - F - Y" }}</strong>
+                            
                         </div>
                     </div>
 
@@ -42,7 +47,7 @@
 
                     <div class="row">
                         <div class="col">
-                            Q {{ row.precio }}
+                            Q {{ row.precio | floatformat:"3u" | intcomma }}
                         </div>
                         <div class="col col d-flex align-items-end flex-column">                            
                              <a href="#" class="btn btn-link text-decoration-none">
