@@ -1,4 +1,4 @@
-# proyecto_django de Depto. Informatica.
+# proyecto de Aprendisaje django de Depto. Informatica.
 
 * * *
 
